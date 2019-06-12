@@ -6,6 +6,11 @@ Dockerfile with all awscli installed
 
 https://hub.docker.com/r/sue445/awscli-all/
 
+## Installed packages
+* `awscli`
+* `aws-sam-cli`
+* `ecs-cli`
+
 ## Build
 ```bash
 docker build --rm -t awscli-all .
