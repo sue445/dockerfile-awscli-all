@@ -58,7 +58,6 @@ jobs:
             docker run -it --rm awscli-all bash -c "aws --version"
 
   update_version:
-    working_directory: /app
     docker:
       - image: circleci/python:3.7
     steps:
@@ -104,7 +103,7 @@ workflows:
     triggers:
       - schedule:
           # cron: "0 19 * * *" # JST 4:00
-          cron: "52 * * * *" # JST 4:00
+          cron: "54 * * * *" # JST 4:00
           filters:
             branches:
               only: master
