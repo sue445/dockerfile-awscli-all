@@ -1,0 +1,1 @@
+# dockerfile-awscli-all
