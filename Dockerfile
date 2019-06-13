@@ -4,9 +4,7 @@ ENV AWSCLI_VERSION 1.16.177
 
 RUN apk --update --no-cache add bash git \
  && apk --update --no-cache add --virtual .build-deps gcc musl-dev \
- && pip install --no-cache-dir \
-                awscli==$AWSCLI_VERSION \
-                aws-sam-cli \
+ && pip install --no-cache-dir awscli==$AWSCLI_VERSION aws-sam-cli \
  && apk del .build-deps --purge
 
 RUN wget https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest -O /usr/local/bin/ecs-cli \
