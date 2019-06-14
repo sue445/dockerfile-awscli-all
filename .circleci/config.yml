@@ -60,15 +60,15 @@ jobs:
 
   update_version:
     docker:
-      - image: circleci/python:3.7
+      - image: python:3.7
     steps:
       - checkout
 
       - run:
           name: Install package
           command: |
-            sudo apt-get update
-            sudo apt-get install git -y
+            apt-get update
+            apt-get install git -y
 
       - run:
           name: Setup git
@@ -80,7 +80,7 @@ jobs:
       - run:
           name: Update VERSION
           command: |
-            sudo pip install yolk3k
+            pip install yolk3k
             VERSION=$(yolk -M awscli --fields=version)
 
             sed -i -e "s/ENV AWSCLI_VERSION .*$/ENV AWSCLI_VERSION ${VERSION}/g" Dockerfile
