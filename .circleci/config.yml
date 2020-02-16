@@ -83,6 +83,7 @@ jobs:
           command: |
             pip install yolk3k
             VERSION=$(yolk -M awscli --fields=version)
+            MAJOR_VERSION=$(echo $VERSION | sed -e 's/^\([0-9]\)\./\1/')
 
             sed -i -e "s/ENV AWSCLI_VERSION .*$/ENV AWSCLI_VERSION ${VERSION}/g" Dockerfile
             git add Dockerfile
@@ -90,8 +91,9 @@ jobs:
             set +o pipefail
             git commit -m "Bump version ${VERSION} from CircleCI" | true
             git tag -a ${VERSION} -m "Release ${VERSION}" | true
+            git tag -a ${MAJOR_VERSION} -m "v${MAJOR_VERSION} latest" -f | true
             set -o pipefail
-            git push origin --tags
+            git push origin --tags -f
             git push origin
 
 workflows:
