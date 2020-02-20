@@ -84,7 +84,7 @@ jobs:
           　set -x
             pip install yolk3k
             VERSION=$(yolk -M awscli --fields=version)
-            MAJOR_VERSION=$(echo $VERSION | sed -e 's/^\([0-9]\)\./\1/')
+            MAJOR_VERSION=$(echo $VERSION | sed -e 's/^\([0-9]\)\..*\/\1/')
 
             sed -i -e "s/ENV AWSCLI_VERSION .*$/ENV AWSCLI_VERSION ${VERSION}/g" Dockerfile
             git add Dockerfile
