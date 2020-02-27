@@ -81,7 +81,7 @@ jobs:
       - run:
           name: Update VERSION
           command: |
-          　set -x
+            set -x
             pip install yolk3k
             VERSION=$(yolk -M awscli --fields=version)
             MAJOR_VERSION=$(echo $VERSION | sed -e 's/^\([0-9]\)\..*\/\1/')
