@@ -1,6 +1,6 @@
 FROM python:3.7-alpine
 
-ENV AWSCLI_VERSION 1.18.46
+ENV AWSCLI_VERSION 1.18.47
 
 RUN apk --update --no-cache add bash git \
  && apk --update --no-cache add --virtual .build-deps gcc musl-dev \
