@@ -1,5 +1,5 @@
 # sue445/awscli-all
-Dockerfile with all awscli installed
+Dockerfile with all awscli (v1) installed
 
 [![CircleCI](https://circleci.com/gh/sue445/dockerfile-awscli-all/tree/master.svg?style=svg)](https://circleci.com/gh/sue445/dockerfile-awscli-all/tree/master)
 
@@ -19,3 +19,10 @@ docker build --rm -t awscli-all .
 ```bash
 docker run -it --rm sue445/awscli-all bash
 ```
+
+## Use aws-cli v2
+Use `amazon/aws-cli` instead of `sue445/awscli-all`
+
+* https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html
+* https://hub.docker.com/r/amazon/aws-cli
+
