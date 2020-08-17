@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  slack: circleci/slack@volatile
+
 commands:
   build_with_cache:
     parameters:
@@ -58,6 +61,7 @@ jobs:
             docker run -it --rm awscli-all bash -c "aws --version"
             docker run -it --rm awscli-all bash -c "sam --version"
             docker run -it --rm awscli-all bash -c "ecs-cli --version"
+      - slack/status
 
   update_version:
     docker:
@@ -94,6 +98,8 @@ jobs:
             set -o pipefail
             git push origin --tags -f
             git push origin
+
+      - slack/notify-on-failure
 
 workflows:
   version: 2
