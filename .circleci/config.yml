@@ -61,6 +61,8 @@ jobs:
             docker run -it --rm awscli-all bash -c "aws --version"
             docker run -it --rm awscli-all bash -c "sam --version"
             docker run -it --rm awscli-all bash -c "ecs-cli --version"
+
+      - run: apk --update --no-cache add bash git
       - slack/status
 
   update_version:
