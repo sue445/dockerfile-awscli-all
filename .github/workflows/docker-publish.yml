@@ -5,6 +5,7 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - master
+      - feature/docker-publish # TODO: Remove after
 
     # Publish `1.2.3` tags as releases.
     tags:
@@ -78,6 +79,8 @@ jobs:
 
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
+
+          VERSION=latest # TODO: Remove after
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
