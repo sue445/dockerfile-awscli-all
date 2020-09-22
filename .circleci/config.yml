@@ -52,6 +52,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - run: apk --update --no-cache add bash curl
       - build_with_cache:
           image_name:       awscli-all
           cache_key_prefix: v1
@@ -62,7 +63,6 @@ jobs:
             docker run -it --rm awscli-all bash -c "sam --version"
             docker run -it --rm awscli-all bash -c "ecs-cli --version"
 
-      - run: apk --update --no-cache add bash curl
       - slack/status
 
   update_version:
