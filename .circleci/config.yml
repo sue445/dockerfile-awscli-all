@@ -117,8 +117,7 @@ workflows:
   daily_update:
     triggers:
       - schedule:
-          #cron: "0 21 * * *" # JST 6:00
-          cron: "10 * * * *"
+          cron: "0 21 * * *" # JST 6:00
           filters:
             branches:
               only: master
