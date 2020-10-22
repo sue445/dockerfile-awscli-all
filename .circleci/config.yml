@@ -93,6 +93,11 @@ jobs:
             pip install yolk3k
             VERSION=$(yolk -M awscli --fields=version)
 
+            if [ -z "$VERSION" ]; then
+              echo '$VERSION is empty!'
+              exit 1
+            fi
+
             sed -i -e "s/ENV AWSCLI_VERSION .*$/ENV AWSCLI_VERSION ${VERSION}/g" Dockerfile
             git add Dockerfile
 
