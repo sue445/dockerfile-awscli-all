@@ -63,9 +63,7 @@ jobs:
             docker run -it --rm awscli-all bash -c "sam --version"
             docker run -it --rm awscli-all bash -c "ecs-cli --version"
 
-      - slack/notify:
-          event: fail
-          template: basic_fail_1
+      - slack/status
 
   update_version:
     docker:
@@ -108,9 +106,7 @@ jobs:
             git push origin --tags -f
             git push origin
 
-      - slack/notify:
-          event: fail
-          template: basic_fail_1
+      - slack/notify-on-failure
 
 workflows:
   version: 2
