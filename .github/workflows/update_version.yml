@@ -65,6 +65,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: master
 
       - run: docker-compose --file docker-compose.test.yml build
       - run: docker-compose --file docker-compose.test.yml run sut
