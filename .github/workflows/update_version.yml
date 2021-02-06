@@ -42,8 +42,8 @@ jobs:
           set +e
           git commit -m "Bump version ${VERSION} from GitHub Actions" | true
           git tag -a ${VERSION} -m "Release ${VERSION}" | true
+          git push origin --tags | true
           set -e
-          git push origin --tags -f
           git push origin
 
       - name: Slack Notification (not success)
