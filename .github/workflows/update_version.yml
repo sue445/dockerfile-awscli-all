@@ -27,7 +27,7 @@ jobs:
 
       - name: Update VERSION
         run: |
-          set -x
+          set -xe
           # c.f. https://github.com/stedolan/jq/issues/708#issuecomment-75394871
           VERSION=$(curl -s https://pypi.org/pypi/awscli/json | jq --raw-output '.releases | keys | sort_by(. | split(".") | map(tonumber)) | .[-1:][0]')
 
@@ -39,10 +39,10 @@ jobs:
           sed -i -e "s/ENV AWSCLI_VERSION .*$/ENV AWSCLI_VERSION ${VERSION}/g" Dockerfile
           git add Dockerfile
 
-          set +o pipefail
+          set +e
           git commit -m "Bump version ${VERSION} from GitHub Actions" | true
           git tag -a ${VERSION} -m "Release ${VERSION}" | true
-          set -o pipefail
+          set -e
           git push origin --tags -f
           git push origin
 
