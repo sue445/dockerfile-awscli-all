@@ -2,7 +2,7 @@ name: update_version
 
 on:
   schedule:
-    - cron: "0 21 * * *" # JST 6:00
+    - cron: "0 22 * * *" # JST 7:00
   workflow_dispatch:
 
 jobs:
