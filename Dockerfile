@@ -1,11 +1,7 @@
 FROM alpine AS ecs-cli-downloader
 
 RUN wget https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest -O /usr/local/bin/ecs-cli \
- && chmod 755 /usr/local/bin/ecs-cli \
- && apk --update --no-cache add gnupg curl \
- && gpg --keyserver hkp://keys.gnupg.net --recv BCE9D9A42D51784F \
- && curl -o ecs-cli.asc https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest.asc \
- && gpg --verify ecs-cli.asc /usr/local/bin/ecs-cli
+ && chmod 755 /usr/local/bin/ecs-cli
 
 FROM python:3.7-alpine
 
