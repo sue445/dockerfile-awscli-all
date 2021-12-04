@@ -17,3 +17,17 @@ workflows:
             branches:
               only:
                 - master
+
+  docker-push-tag:
+    jobs:
+      - docker/publish:
+          image: sue445/awscli-all
+          tag: $CIRCLE_TAG
+          after_build:
+            - slack/status
+          context: DockerHub
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^\d+\.\d+\.\d+$/
