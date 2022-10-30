@@ -8,7 +8,7 @@ FROM python:3.7-alpine
 ENV AWSCLI_VERSION 1.26.4
 
 RUN apk --update --no-cache add bash git \
- && apk --update --no-cache add --virtual .build-deps gcc musl-dev \
+ && apk --update --no-cache add --virtual .build-deps gcc musl-dev libffi-dev \
  && pip install --no-cache-dir awscli==$AWSCLI_VERSION aws-sam-cli \
  && apk del .build-deps --purge
 
