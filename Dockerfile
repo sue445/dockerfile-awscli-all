@@ -9,7 +9,7 @@ ENV AWSCLI_VERSION 1.29.8
 
 RUN apk --update --no-cache add bash git \
  && apk --update --no-cache add --virtual .build-deps gcc musl-dev libffi-dev \
- && pip install --no-cache-dir awscli==$AWSCLI_VERSION aws-sam-cli \
+ && pip install --no-cache-dir awscli==$AWSCLI_VERSION aws-sam-cli pyyaml!=6.0.0,!=5.4.0,!=5.4.1 \
  && apk del .build-deps --purge
 
 COPY --from=ecs-cli-downloader /usr/local/bin/ecs-cli /usr/local/bin/ecs-cli
