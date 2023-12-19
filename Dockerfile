@@ -3,7 +3,7 @@ FROM alpine AS ecs-cli-downloader
 RUN wget https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest -O /usr/local/bin/ecs-cli \
  && chmod 755 /usr/local/bin/ecs-cli
 
-FROM python:3.7-alpine
+FROM python:3.8-alpine
 
 ENV AWSCLI_VERSION 1.32.2
 
