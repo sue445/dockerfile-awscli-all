@@ -5,7 +5,7 @@ RUN wget https://s3.amazonaws.com/amazon-ecs-cli/ecs-cli-linux-amd64-latest -O /
 
 FROM python:3.8-alpine
 
-ENV AWSCLI_VERSION 1.32.71
+ENV AWSCLI_VERSION 1.32.72
 
 RUN apk --update --no-cache add bash git \
  && apk --update --no-cache add --virtual .build-deps gcc musl-dev libffi-dev \
