@@ -1,8 +1,8 @@
 # sue445/awscli-all
 Dockerfile with all awscli (v1) installed
 
-[![Build Status](https://github.com/sue445/dockerfile-awscli-all/workflows/build/badge.svg?branch=master)](https://github.com/sue445/dockerfile-awscli-all/actions?query=workflow%3Abuild)
-[![Build Status](https://github.com/sue445/dockerfile-awscli-all/workflows/update_version/badge.svg?branch=master)](https://github.com/sue445/dockerfile-awscli-all/actions?query=workflow%3Aupdate_version)
+[![build](https://github.com/sue445/dockerfile-awscli-all/actions/workflows/build.yml/badge.svg)](https://github.com/sue445/dockerfile-awscli-all/actions/workflows/build.yml)
+[![update_version](https://github.com/sue445/dockerfile-awscli-all/actions/workflows/update_version.yml/badge.svg)](https://github.com/sue445/dockerfile-awscli-all/actions/workflows/update_version.yml)
 [![CircleCI](https://circleci.com/gh/sue445/dockerfile-awscli-all/tree/master.svg?style=svg)](https://circleci.com/gh/sue445/dockerfile-awscli-all/tree/master)
 
 * https://hub.docker.com/r/sue445/awscli-all/
